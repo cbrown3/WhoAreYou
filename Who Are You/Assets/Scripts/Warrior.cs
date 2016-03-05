@@ -3,10 +3,12 @@ using System;
 
 namespace AssemblyCSharpEditor
 {
-    public class Warrior : MonoBehaviour
+    public class Warrior : Player
 	{
-		public Warrior ()
+		public Warrior()
+            : base()
 		{
+            
 		}
 	}
 }
