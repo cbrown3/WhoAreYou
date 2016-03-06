@@ -5,7 +5,7 @@ namespace AssemblyCSharpEditor
 {
 	public class DemonEnemy : MonoBehaviour
 	{
-		private int health;
+		public int health;
         private int damage;
 
         public Vector2 speed;

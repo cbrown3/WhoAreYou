@@ -21,10 +21,10 @@ namespace AssemblyCSharpEditor
         {
             Player p = new Player();
 
-            List<WarEnemy> warriors = new List<WarEnemy>();
-            List<MageEnemy> mages = new List<MageEnemy>();
-            List<HoundEnemy> hounds = new List<HoundEnemy>();
-            List<DemonEnemy> demons = new List<DemonEnemy>();
+            warriors = new List<WarEnemy>();
+            mages = new List<MageEnemy>();
+            hounds = new List<HoundEnemy>();
+            demons = new List<DemonEnemy>();
         }
 
         public void Update()
@@ -52,6 +52,42 @@ namespace AssemblyCSharpEditor
             }
         }
 
+        public void CollisionDetection(Collision2D coll)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (coll.gameObject.tag == "WarEnemy")
+                {
+                    foreach (WarEnemy w in warriors)
+                    {
+                        w.health -= p.getPhysDamage();
+                    }
+                }
 
+                if (coll.gameObject.tag == "MageEnemy")
+                {
+                    foreach (MageEnemy m in mages)
+                    {
+                        m.health -= p.getPhysDamage();
+                    }
+                }
+
+                if (coll.gameObject.tag == "HoundEnemy")
+                {
+                    foreach (HoundEnemy h in hounds)
+                    {
+                        h.health -= p.getPhysDamage();
+                    }
+                }
+
+                if (coll.gameObject.tag == "DemonEnemy")
+                {
+                    foreach (DemonEnemy d in demons)
+                    {
+                        d.health -= p.getPhysDamage();
+                    }
+                }
+            }
+        }
     }
 }
